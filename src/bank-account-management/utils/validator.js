@@ -1,9 +1,9 @@
 export function isValidAccountName(accountName) {
- return accountName.length >= 0;
+ return accountName.length >= 1;
 }
 
 export function isValidPassword(password) {
- return password.length >= 8;
+ return password.length >= 4;
 }
 
 export function isValidAmount(amount) {

@@ -1,5 +1,5 @@
 import { Account } from "../logic/account.js";
-import { isValidAmount } from "../utils/validator.js";
+import { isValidAmount, isValidAccountName, isValidPassword } from "../utils/validator.js";
 import { readAccountName, readPassword, readAmount } from "./readline.js";
 
 const accounts = new Map();
@@ -24,7 +24,10 @@ function showMenu() {
 function createAccount() {
   if (activeUser != null) throw new Error("Invalid option");
   const accountName = readAccountName();
+  if (!isValidAccountName(accountName))
+    throw new Error("Account name must be at least 1 character long");
   const password = readPassword();
+  if (!isValidPassword(password)) throw new Error("Password must be at least 4 characters long");
 
   if (accounts.has(accountName)) {
     throw new Error("Account already exists");
@@ -38,6 +41,7 @@ function createAccount() {
 function login() {
   if (activeUser != null) throw new Error("Invalid option");
   const accountName = readAccountName();
+  if(!isValidAccountName(accountName)) throw new Error("Account Name is required");
   const password = readPassword();
   if (!accounts.has(accountName)) {
     throw new Error("Account does not exist, Try again");

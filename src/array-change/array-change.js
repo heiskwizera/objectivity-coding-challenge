@@ -1,10 +1,10 @@
-function getArrayChanges(originalArray, updatedArray) {
-  const addedElements = updatedArray.filter((element) => !originalArray.includes(element));
-  const removedElements = originalArray.filter((element) => !updatedArray.includes(element));
+function ArrayChange(originalArray, updatedArray) {
+  const addedElements = updatedArray.filter((item) => !originalArray.includes(item));
+  const removedElements = originalArray.filter((item) => !updatedArray.includes(item));
   return {
     "Added Elements": addedElements,
     "Removed Elements": removedElements,
   };
 }
 
-export default getArrayChanges;
+export default ArrayChange;
