@@ -1,6 +1,6 @@
 import rl from "readline-sync";
 
-import { ArrayChange } from "./src/array-change/index.js";
+import { testChangeArray } from "./src/array-change/index.js";
 import { BankManagement } from "./src/bank-account-management/index.js";
 
 let option = 0;
@@ -12,7 +12,7 @@ do {
   option = rl.questionInt("Enter Challenge :: ");
   switch (option) {
     case 1:
-      ArrayChange();
+      testChangeArray();
       break;
     case 2:
       BankManagement();
